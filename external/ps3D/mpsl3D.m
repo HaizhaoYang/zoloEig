@@ -1,0 +1,9 @@
+function[x]=mpsl3D(x)
+n=size(x,1);
+x=fftn(x);
+kk=[(0:(n+mod(n,2))/2-1),(-(n-mod(n,2))/2:-1)];
+kk=(2*pi*kk).^2;
+[kk1,kk2,kk3]=ndgrid(kk);
+x=x.*(kk1+kk2+kk3);
+x=ifftn(x);
+end

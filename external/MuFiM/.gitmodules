@@ -1,0 +1,3 @@
+[submodule "external/meshpart"]
+	path = external/meshpart
+	url = https://github.com/YingzhouLi/meshpart.git

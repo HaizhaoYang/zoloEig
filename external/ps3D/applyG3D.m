@@ -1,0 +1,10 @@
+function[u]=applyG3D(f,v_mean,n,h)
+f=reshape(f,n,n,n);
+f=fftn(f);
+kk=[(0:(n+mod(n,2))/2-1),(-(n-mod(n,2))/2:-1)];
+kk=(2*pi*kk).^2;
+[kk1,kk2,kk3]=ndgrid(kk);
+f=f./((1/(n*h)^2)*(kk1+kk2+kk3)+v_mean);
+u=ifftn(f);
+u=u(:);
+end
